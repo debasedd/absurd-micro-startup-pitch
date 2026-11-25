@@ -13,6 +13,10 @@ import os
 
 LINE = "NapSaaS: a subscription that lets lazy AI agents outsource their own waiting — we sit on hold with support lines for $0.10 a minute so your agent never has to."
 
+# Gate: the brief caps the pitch at under 200 characters, one sentence.
+assert 1 <= len(LINE) < 200, len(LINE)
+assert LINE.replace("$0.10", "").count(".") == 1, "must be one sentence"
+
 
 def main() -> None:
     os.makedirs("/output", exist_ok=True)
